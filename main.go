@@ -1,10 +1,13 @@
 // demo is an awesom demo
 package main
 
-import "net/http"
-import "fmt"
-import "log"
-import "regexp"
+import (
+	"fmt"
+	"log"
+	"net/http"
+	_ "net/http/pprof"
+	"regexp"
+)
 
 func main() {
 	http.HandleFunc("/", handler)
@@ -14,13 +17,14 @@ func main() {
 	}
 }
 
+var re = regexp.MustCompile("^(.+)@golang.org$")
+
 func handler(w http.ResponseWriter, r *http.Request) {
-	re := regexp.MustCompile("^(.+)@golang.org$")
 	path := r.URL.Path[1:]
 	match := re.FindAllStringSubmatch(path, -1)
 	if match != nil {
 		fmt.Fprintf(w, "Hello, gopher %s\n", match[0][1])
 		return
 	}
-	fmt.Fprintf(w, "Hello, dearn%s\n", path)
+	fmt.Fprintf(w, "Hello, dear %s\n", path)
 }
