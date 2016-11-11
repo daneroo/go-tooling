@@ -7,12 +7,14 @@
 ## Summary
 installation:
 ```bash
+# Debug
 brew install go-delve/delve/delve
 
+# Linting
 go get -u gopkg.in/alecthomas/gometalinter.v1
 gometalinter.v1 --install
 
-# load testing
+# Load testing (with pprof instrumentation)
 go get github.com/tsliwowicz/go-wrk
 # NOT: error in video: go get github.com/adjust/go-wrk
 
@@ -24,8 +26,9 @@ git clone https://github.com/brendangregg/FlameGraph.git
 ```
 
 ## References
-[Francesc Campoy on Tooling](https://www.youtube.com/watch?v=uBjoTxosSys&index=6&list=WL)
-[Vendoring Deconstructed](https://www.youtube.com/watch?v=6gdVhHMxNTo)
+- [Francesc Campoy on Tooling](https://www.youtube.com/watch?v=uBjoTxosSys&index=6&list=WL)
+- [Vendoring Deconstructed](https://www.youtube.com/watch?v=6gdVhHMxNTo)
+
 ### Basic commands
 
 ### Build
