@@ -1,0 +1,3 @@
+package: github.com/daneroo/go-tooling
+import:
+- package: github.com/nu7hatch/gouuid

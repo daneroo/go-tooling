@@ -14,6 +14,9 @@ brew install go-delve/delve/delve
 go get -u gopkg.in/alecthomas/gometalinter.v1
 gometalinter.v1 --install
 
+# Vendoring
+brew install glide
+
 # Load testing (with pprof instrumentation)
 go get github.com/tsliwowicz/go-wrk
 # NOT: error in video: go get github.com/adjust/go-wrk
@@ -46,6 +49,13 @@ go get github.com/golang/example/hello
 ls $GOPATH/src/github.com/golang/example/hello/
 $GOPATH/bin/hello
 ```
+
+### Vendoring
+glide init     # create initial glide.yaml file
+glide update   # fetch latest revs
+glide install  
+glide get github.com/foo/bar
+glide get github.com/foo/bar#^1.2.3
 
 ### List
 ```bash
